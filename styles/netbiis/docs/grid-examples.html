@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplos - Sistema Grid & Responsivo</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/netbiis-bootstrap.css">
+  <style>
+    /* Estilos apenas para demonstração visual */
+    .demo-box {
+      background: #f0f0f0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .demo-highlight {
+      background: #e3f2fd;
+      border-color: #2196f3;
+    }
+    .demo-section {
+      margin: 60px 0;
+      padding: 40px 0;
+      border-bottom: 2px solid #eee;
+    }
+    .demo-code {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 16px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body class="appear">
+
+  <!-- EXEMPLO 1: Container System -->
+  <section class="demo-section">
+    <div class="container">
+      <h2 class="mb-lg">1. Sistema de Containers</h2>
+
+      <h3 class="mt-xl mb-md">Container Padrão (Responsivo)</h3>
+      <div class="demo-code">&lt;div class="container"&gt;...&lt;/div&gt;</div>
+      <div class="demo-box demo-highlight">
+        Container com largura máxima responsiva
+      </div>
+
+      <h3 class="mt-xl mb-md">Container Fluid (100% largura)</h3>
+      <div class="demo-code">&lt;div class="container-fluid"&gt;...&lt;/div&gt;</div>
+    </div>
+    <div class="container-fluid mt-md">
+      <div class="demo-box demo-highlight">
+        Container Fluid - 100% da largura da tela
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLO 2: Grid System -->
+  <section class="demo-section">
+    <div class="container">
+      <h2 class="mb-lg">2. Sistema de Grid CSS</h2>
+
+      <h3 class="mt-xl mb-md">Grid com Colunas Iguais</h3>
+      <div class="demo-code">&lt;div class="grid grid-cols-3 gap-md"&gt;</div>
+      <div class="grid grid-cols-3 gap-md">
+        <div class="demo-box">Col 1</div>
+        <div class="demo-box">Col 2</div>
+        <div class="demo-box">Col 3</div>
+      </div>
+
+      <h3 class="mt-xl mb-md">Grid Responsivo (1 col → 2 cols → 4 cols)</h3>
+      <div class="demo-code">&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md"&gt;</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md mt-md">
+        <div class="demo-box">Item 1</div>
+        <div class="demo-box">Item 2</div>
+        <div class="demo-box">Item 3</div>
+        <div class="demo-box">Item 4</div>
+      </div>
+
+      <h3 class="mt-xl mb-md">Grid com Spans (Layout Assimétrico)</h3>
+      <div class="demo-code">&lt;div class="grid gap-md"&gt;<br>&nbsp;&nbsp;&lt;div class="col-8"&gt;Principal&lt;/div&gt;<br>&nbsp;&nbsp;&lt;div class="col-4"&gt;Sidebar&lt;/div&gt;</div>
+      <div class="grid gap-md mt-md">
+        <div class="col-12 md:col-8 demo-box demo-highlight">Conteúdo Principal (8/12)</div>
+        <div class="col-12 md:col-4 demo-box">Sidebar (4/12)</div>
+      </div>
+
+      <h3 class="mt-xl mb-md">Grid Auto-fit (Cards Responsivos)</h3>
+      <div class="demo-code">&lt;div class="grid grid-cols-auto gap-lg"&gt;</div>
+      <div class="grid grid-cols-auto gap-lg mt-md">
+        <div class="demo-box">Card 1</div>
+        <div class="demo-box">Card 2</div>
+        <div class="demo-box">Card 3</div>
+        <div class="demo-box">Card 4</div>
+        <div class="demo-box">Card 5</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLO 3: Flexbox -->
+  <section class="demo-section">
+    <div class="container">
+      <h2 class="mb-lg">3. Sistema Flexbox</h2>
+
+      <h3 class="mt-xl mb-md">Flex com Space Between</h3>
+      <div class="demo-code">&lt;div class="flex justify-between items-center"&gt;</div>
+      <div class="flex justify-between items-center mt-md p-md" style="background: #fafafa;">
+        <div class="demo-box" style="width: 150px;">Esquerda</div>
+        <div class="demo-box" style="width: 150px;">Centro</div>
+        <div class="demo-box" style="width: 150px;">Direita</div>
+      </div>
+
+      <h3 class="mt-xl mb-md">Flex Responsivo (Coluna → Linha)</h3>
+      <div class="demo-code">&lt;div class="flex flex-col md:flex-row gap-md"&gt;</div>
+      <div class="flex flex-col md:flex-row gap-md mt-md">
+        <div class="demo-box flex-1">Box 1</div>
+        <div class="demo-box flex-1">Box 2</div>
+        <div class="demo-box flex-1">Box 3</div>
+      </div>
+
+      <h3 class="mt-xl mb-md">Flex Centralizado</h3>
+      <div class="demo-code">&lt;div class="flex items-center justify-center"&gt;</div>
+      <div class="flex items-center justify-center mt-md p-xxl" style="background: #fafafa; min-height: 200px;">
+        <div class="demo-box demo-highlight">Centralizado Vertical e Horizontal</div>
+      </div>
+
+      <h3 class="mt-xl mb-md">Flex Wrap com Gap</h3>
+      <div class="demo-code">&lt;div class="flex flex-wrap gap-md"&gt;</div>
+      <div class="flex flex-wrap gap-md mt-md">
+        <div class="demo-box" style="width: 200px;">Item 1</div>
+        <div class="demo-box" style="width: 200px;">Item 2</div>
+        <div class="demo-box" style="width: 200px;">Item 3</div>
+        <div class="demo-box" style="width: 200px;">Item 4</div>
+        <div class="demo-box" style="width: 200px;">Item 5</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLO 4: Espaçamento -->
+  <section class="demo-section">
+    <div class="container">
+      <h2 class="mb-lg">4. Sistema de Espaçamento</h2>
+
+      <h3 class="mt-xl mb-md">Margins e Paddings</h3>
+      <div class="demo-code">Classes: m-*, mx-*, my-*, mt-*, mb-*, p-*, px-*, py-*<br>Tamanhos: xs, sm, md, lg, xl, xxl</div>
+
+      <div class="mt-md" style="background: #fafafa; padding: 20px;">
+        <div class="demo-box mb-lg">Margin Bottom Large (24px)</div>
+        <div class="demo-box mb-md">Margin Bottom Medium (16px)</div>
+        <div class="demo-box p-xl demo-highlight">Padding Extra Large (32px)</div>
+      </div>
+
+      <h3 class="mt-xl mb-md">Gap em Grid</h3>
+      <div class="demo-code">&lt;div class="grid grid-cols-3 gap-xl"&gt;</div>
+      <div class="grid grid-cols-3 gap-xl mt-md">
+        <div class="demo-box">Gap XL</div>
+        <div class="demo-box">32px entre</div>
+        <div class="demo-box">os items</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLO 5: Responsividade -->
+  <section class="demo-section">
+    <div class="container">
+      <h2 class="mb-lg">5. Utilitários Responsivos</h2>
+
+      <h3 class="mt-xl mb-md">Visibilidade Responsiva</h3>
+      <div class="demo-code">&lt;div class="block md:hidden"&gt;Mobile&lt;/div&gt;<br>&lt;div class="hidden md:block"&gt;Desktop&lt;/div&gt;</div>
+
+      <div class="mt-md">
+        <div class="demo-box demo-highlight block md:hidden">
+          📱 Visível apenas em MOBILE (redimensione a janela)
+        </div>
+        <div class="demo-box demo-highlight hidden md:block">
+          🖥️ Visível apenas em DESKTOP (redimensione a janela)
+        </div>
+      </div>
+
+      <h3 class="mt-xl mb-md">Layout Responsivo Completo</h3>
+      <div class="demo-code">&lt;div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"&gt;</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md mt-md">
+        <div class="demo-box">1 col mobile<br>2 cols tablet<br>4 cols desktop</div>
+        <div class="demo-box">Redimensione<br>a janela<br>para ver</div>
+        <div class="demo-box">O layout<br>se adaptar<br>automaticamente</div>
+        <div class="demo-box">Responsivo<br>e fluido</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLO 6: Caso de Uso Real - Hero Section -->
+  <section class="demo-section">
+    <div class="container">
+      <h2 class="mb-lg">6. Exemplo Real: Hero Section</h2>
+
+      <div class="demo-code">&lt;section class="container py-xxl"&gt;<br>&nbsp;&nbsp;&lt;div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center"&gt;</div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center mt-md py-xl" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white;">
+        <div class="p-lg">
+          <h1 class="mb-md" style="color: white;">Título do Hero</h1>
+          <p class="mb-lg" style="color: rgba(255,255,255,0.9);">Este é um exemplo de hero section responsivo usando o sistema de grid. Em mobile fica em coluna, em desktop fica lado a lado.</p>
+          <a href="#" class="button" style="background: white; color: #667eea;">Call to Action</a>
+        </div>
+        <div class="p-lg">
+          <div class="demo-box" style="min-height: 300px; background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.3);">
+            Imagem Hero<br>600x400px
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLO 7: Cards Grid -->
+  <section class="demo-section">
+    <div class="container">
+      <h2 class="mb-lg">7. Exemplo Real: Grid de Cards</h2>
+
+      <div class="demo-code">&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg"&gt;</div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg mt-md">
+        <div style="background: white; border: 1px solid #ddd; border-radius: 12px; overflow: hidden;">
+          <div class="demo-box" style="min-height: 200px; margin: 0; border-radius: 0;">Imagem</div>
+          <div class="p-lg">
+            <h3 class="mb-sm">Card Título 1</h3>
+            <p class="mb-md" style="font-size: 14px; color: #666;">Descrição do card com informações relevantes sobre o produto ou serviço.</p>
+            <a href="#" class="button">Saiba mais</a>
+          </div>
+        </div>
+
+        <div style="background: white; border: 1px solid #ddd; border-radius: 12px; overflow: hidden;">
+          <div class="demo-box" style="min-height: 200px; margin: 0; border-radius: 0;">Imagem</div>
+          <div class="p-lg">
+            <h3 class="mb-sm">Card Título 2</h3>
+            <p class="mb-md" style="font-size: 14px; color: #666;">Descrição do card com informações relevantes sobre o produto ou serviço.</p>
+            <a href="#" class="button">Saiba mais</a>
+          </div>
+        </div>
+
+        <div style="background: white; border: 1px solid #ddd; border-radius: 12px; overflow: hidden;">
+          <div class="demo-box" style="min-height: 200px; margin: 0; border-radius: 0;">Imagem</div>
+          <div class="p-lg">
+            <h3 class="mb-sm">Card Título 3</h3>
+            <p class="mb-md" style="font-size: 14px; color: #666;">Descrição do card com informações relevantes sobre o produto ou serviço.</p>
+            <a href="#" class="button">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer informativo -->
+  <section class="py-xxl" style="background: #f8f8f8; margin-top: 60px;">
+    <div class="container text-center">
+      <h2 class="mb-md">Sistema de Grid & Responsividade</h2>
+      <p class="mb-lg">Estrutura completa para Adobe Edge Delivery</p>
+      <p style="color: #666;">Consulte o arquivo <strong>GRID_RESPONSIVE_GUIDE.md</strong> para documentação completa</p>
+    </div>
+  </section>
+
+</body>
+</html>

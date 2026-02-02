@@ -1,0 +1,95 @@
+// ============================================
+// SASS FUNCTIONS
+// Utility functions for calculations
+// ============================================
+
+// MATH
+// ============================================
+
+// Convert px to rem (assuming 16px base)
+@function rem($pixels) {
+  @return #{$pixels / 16}rem;
+}
+
+// Convert px to em (assuming 16px base)
+@function em($pixels, $base: 16) {
+  @return #{$pixels / $base}em;
+}
+
+// Calculate percentage
+@function percentage-calc($value, $total) {
+  @return ($value / $total) * 100%;
+}
+
+// CORES
+// ============================================
+
+// Escurecer uma cor
+@function darken-color($color, $amount) {
+  @return darken($color, $amount);
+}
+
+// Clarear uma cor
+@function lighten-color($color, $amount) {
+  @return lighten($color, $amount);
+}
+
+// Adicionar transparência
+@function alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// ESPAÇAMENTO
+// ============================================
+
+// Multiplicar espaçamento base
+@function spacing($multiplier) {
+  @return $spacing-md * $multiplier;
+}
+
+// STRING
+// ============================================
+
+// Substituir string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// LISTAS & MAPAS
+// ============================================
+
+// Pegar valor de mapa com fallback
+@function map-get-default($map, $key, $default) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  }
+  @return $default;
+}
+
+// UTILITÁRIOS
+// ============================================
+
+// Z-index baseado em camadas
+$z-layers: (
+  'base': 0,
+  'dropdown': 1000,
+  'sticky': 1020,
+  'fixed': 1030,
+  'modal-backdrop': 1040,
+  'modal': 1050,
+  'popover': 1060,
+  'tooltip': 1070
+);
+
+@function z($layer) {
+  @return map-get($z-layers, $layer);
+}
+
+// Exemplo de uso:
+// .modal { z-index: z('modal'); }

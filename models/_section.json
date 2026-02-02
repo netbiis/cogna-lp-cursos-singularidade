@@ -31,8 +31,32 @@
           "label": "Style",
           "options": [
             {
-              "name": "Highlight",
-              "value": "highlight"
+              "name": "Container",
+              "value": "container"
+            },
+            {
+              "name": "Container Fluid",
+              "value": "container-fluid"
+            },
+            {
+              "name": "Container SM",
+              "value": "container-sm"
+            },
+            {
+              "name": "Container MD",
+              "value": "container-md"
+            },
+            {
+              "name": "Container LG",
+              "value": "container-lg"
+            },
+            {
+              "name": "Container XL",
+              "value": "container-xl"
+            },
+            {
+              "name": "Container XXL",
+              "value": "container-xxl"
             }
           ]
         }
@@ -43,15 +67,24 @@
     {
       "id": "section",
       "components": [
-        "text",
-        "image",
+        "accordion",
+        "banner",
         "button",
-        "title",
-        "hero",
         "cards",
+        "carousel",
         "columns",
-        "fragment"
-      ]
+        "embed",
+        "fragment",
+        "form",
+        "hero",
+        "image",
+        "quote",
+        "search",
+        "tabs",
+        "table",
+        "text",
+        "title",
+        "video"      ]
     }
   ]
 }

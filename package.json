@@ -12,6 +12,12 @@
     "build:json:models": "merge-json-cli -i \"models/_component-models.json\" -o \"component-models.json\"",
     "build:json:definitions": "merge-json-cli -i \"models/_component-definition.json\" -o \"component-definition.json\"",
     "build:json:filters": "merge-json-cli -i \"models/_component-filters.json\" -o \"component-filters.json\"",
+    "sass:netbiis": "sass styles/netbiis/netbiis-bootstrap.scss styles/netbiis-bootstrap.css && npm run lint:css -- --fix",
+    "sass:netbiis:watch": "sass --watch styles/netbiis/netbiis-bootstrap.scss:styles/netbiis-bootstrap.css",
+    "sass:netbiis:build": "sass styles/netbiis/netbiis-bootstrap.scss styles/netbiis-bootstrap.css --no-source-map --style=expanded && npm run lint:css -- --fix",
+    "sass:compile": "npm run sass:netbiis && sass blocks:blocks --no-source-map && npm run lint:css -- --fix",
+    "sass:watch": "sass --watch styles/netbiis/netbiis-bootstrap.scss:styles/netbiis-bootstrap.css blocks:blocks",
+    "sass:build": "npm run sass:netbiis:build && sass blocks:blocks --no-source-map --style=expanded && npm run lint:css -- --fix",
     "prepare": "husky"
   },
   "repository": {
@@ -26,6 +32,7 @@
   "homepage": "https://github.com/adobe/aem-boilerplate#readme",
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
+    "baseline-browser-mapping": "^2.9.19",
     "eslint": "8.57.1",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.32.0",
@@ -34,6 +41,7 @@
     "husky": "9.1.1",
     "merge-json-cli": "1.0.4",
     "npm-run-all": "4.1.5",
+    "sass": "^1.97.3",
     "stylelint": "17.0.0",
     "stylelint-config-standard": "40.0.0"
   }

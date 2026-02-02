@@ -1,0 +1,75 @@
+// ============================================
+// SPACING UTILITIES
+// Margins, Paddings and Gaps
+// ============================================
+
+$spacing-sizes: (
+  'xs': var(--spacing-xs),
+  'sm': var(--spacing-sm),
+  'md': var(--spacing-md),
+  'lg': var(--spacing-lg),
+  'xl': var(--spacing-xl),
+  'xxl': var(--spacing-xxl),
+  'xxxl': var(--spacing-xxxl)
+);
+
+// Margins
+@each $name, $size in $spacing-sizes {
+  .m-#{$name} { margin: $size; }
+  .mt-#{$name} { margin-top: $size; }
+  .mr-#{$name} { margin-right: $size; }
+  .mb-#{$name} { margin-bottom: $size; }
+  .ml-#{$name} { margin-left: $size; }
+  .mx-#{$name} {
+    margin-left: $size;
+    margin-right: $size;
+  }
+  .my-#{$name} {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+}
+
+// Paddings
+@each $name, $size in $spacing-sizes {
+  .p-#{$name} { padding: $size; }
+  .pt-#{$name} { padding-top: $size; }
+  .pr-#{$name} { padding-right: $size; }
+  .pb-#{$name} { padding-bottom: $size; }
+  .pl-#{$name} { padding-left: $size; }
+  .px-#{$name} {
+    padding-left: $size;
+    padding-right: $size;
+  }
+  .py-#{$name} {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+}
+
+// Gaps
+@each $name, $size in $spacing-sizes {
+  .gap-#{$name} { gap: $size; }
+  .gap-x-#{$name} { column-gap: $size; }
+  .gap-y-#{$name} { row-gap: $size; }
+}
+
+// Margin auto
+.m-auto { margin: auto; }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.mt-auto { margin-top: auto; }
+.mr-auto { margin-right: auto; }
+.mb-auto { margin-bottom: auto; }
+.ml-auto { margin-left: auto; }
+
+// Margin/Padding 0
+.m-0 { margin: 0; }
+.p-0 { padding: 0; }
+.gap-0 { gap: 0; }
