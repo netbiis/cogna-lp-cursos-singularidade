@@ -1,8 +1,8 @@
 {
-  "name": "@adobe/aem-boilerplate",
+  "name": "@netbiis/netbiis-aem-boilerplate-xwalk",
   "private": true,
-  "version": "1.3.0",
-  "description": "Starter project for Adobe Helix",
+  "version": "1.0.0",
+  "description": "Starter project for Adobe Helix by Netbiis",
   "scripts": {
     "lint:js": "eslint . --ext .json,.js,.mjs",
     "lint:css": "stylelint \"blocks/**/*.css\" \"styles/*.css\"",
@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adobe/aem-boilerplate.git"
+    "url": "git+https://github.com/netbiis/netbiis-aem-boilerplate-xwalk.git"
   },
-  "author": "Adobe",
+  "author": "Netbiis",
   "license": "Apache License 2.0",
   "bugs": {
-    "url": "https://github.com/adobe/aem-boilerplate/issues"
+    "url": "https://github.com/netbiis/netbiis-aem-boilerplate-xwalk/issues"
   },
-  "homepage": "https://github.com/adobe/aem-boilerplate#readme",
+  "homepage": "https://github.com/netbiis/netbiis-aem-boilerplate-xwalk#readme",
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
     "baseline-browser-mapping": "^2.9.19",
