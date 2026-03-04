@@ -1,8 +1,10 @@
 {
   "mappings": [
-    "/content/aem-boilerplate/:/"
+    "/content/eds-lp-singularidades-curso/:/",
+    "/content/eds-lp-singularidades-curso/query-index.json:/query-index.json"
   ],
   "includes": [
-    "/content/aem-boilerplate/"
+    "/content/eds-lp-singularidades-curso/",
+    "/content/dam/eds-lp-singularidades-curso"
   ]
 }
