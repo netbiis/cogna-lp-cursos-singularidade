@@ -45,3 +45,70 @@ export function extractComponentHtmlFrom(element, elementType) {
   }
   return extractComponentHtmlFrom(element.children[0], elementType);
 }
+
+
+/**
+ * Splits the direct children of a container by <hr> elements
+ * and returns an array of <div class="multifield"> nodes.
+ *
+ * This function does NOT mutate the original container.
+ * It only builds and returns the generated wrapper elements.
+ *
+ * @param {HTMLElement | null | undefined} container
+ * The parent element whose direct children will be processed.
+ *
+ * @returns {HTMLDivElement[]}
+ * An array of <div class="multifield"> elements containing
+ * the grouped child nodes.
+ */
+export function transformToMultifield(container) {
+  if (!container) return [];
+
+  const groups = [];
+  let currentGroup = [];
+
+  Array.from(container.children).forEach((child) => {
+    if (child.tagName.toLowerCase() === 'hr') {
+      if (currentGroup.length) {
+        groups.push([...currentGroup]);
+        currentGroup = [];
+      }
+    } else {
+      currentGroup.push(child);
+    }
+  });
+
+  if (currentGroup.length) {
+    groups.push([...currentGroup]);
+  }
+
+  // Criar wrappers SEM alterar o container original
+  const wrappers = groups.map((group) => {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('multifield');
+
+    group.forEach((el) => {
+      wrapper.appendChild(el.cloneNode(true)); // clone para não remover do original
+    });
+
+    return wrapper;
+  });
+
+  return wrappers;
+}
+
+/**
+ * Determines if the current environment is the Universal Editor or Adobe AEM Cloud.
+ *
+ * Checks the current window location to see if it matches known patterns for the
+ * Universal Editor or Adobe AEM Cloud environments. This can be used to conditionally
+ * enable or disable features based on the editing context.
+ *
+ * @returns {boolean} True if the current environment is the Universal Editor or
+ * Adobe AEM Cloud, false otherwise.
+ */
+export function isUniversalEditor() {
+  return window.location.href.includes('universal-editor')
+    || window.location.hostname.includes('adobeaemcloud.com')
+    || window.location.hash.includes('/ui#/');
+}
