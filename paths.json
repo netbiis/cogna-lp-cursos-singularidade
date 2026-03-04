@@ -1,10 +1,12 @@
 {
   "mappings": [
     "/content/eds-lp-singularidades-curso/:/",
-    "/content/eds-lp-singularidades-curso/query-index.json:/query-index.json"
+    "/content/eds-lp-singularidades-curso/query-index.json:/query-index.json",
+    "/content/eds-lp-singularidades-curso/configuration:/.helix/config.json",
+    "/content/eds-lp-singularidades-curso/metadata:/metadata.json"
   ],
   "includes": [
     "/content/eds-lp-singularidades-curso/",
-    "/content/dam/eds-lp-singularidades-curso"
+    "/content/dam/eds-lp-singularidades-curso/"
   ]
 }
