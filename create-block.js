@@ -58,7 +58,7 @@ function createBlockJSON(blockName, hasChildren = false, hasImage = false) {
   };
 
   if (hasChildren) {
-    // Adiciona definição do item filho
+    // Add child item definition
     json.definitions.push({
       title: `${blockTitle} Item`,
       id: `${blockId}-item`,
@@ -75,7 +75,7 @@ function createBlockJSON(blockName, hasChildren = false, hasImage = false) {
       },
     });
 
-    // Modelo para o item filho
+    // Model for child item
     const models = {
       id: `${blockId}-item`,
       fields: [
@@ -110,7 +110,7 @@ function createBlockJSON(blockName, hasChildren = false, hasImage = false) {
     json.models.push(models);
 
   } else {
-    // Modelo simples sem filhos
+    // Simple model without children
     json.models.push({
       id: blockId,
       fields: [
@@ -157,7 +157,7 @@ function createBlockJS(blockName) {
      *
      * This function transforms the raw ${blockName} block into a structured layout with:
      *
-     * @param {HTMLElement} block - The ${blockName} block element containing title, description, and image(optional),
+     * @param {HTMLElement} block - The ${blockName} block element containing title, description, and image (optional)
      *
      * Block structure expected:
      * - children[0]: title element (h1)
@@ -196,7 +196,7 @@ function createBlockJS(blockName) {
 function createBlockCSS(blockName) {
   const blockClass = toKebabCase(blockName);
   return `.${blockClass} {
-  /* Estilos do bloco ${blockName} */
+  /* Block styles for ${blockName} */
   /* Only demo */
   visibility: inherit;
 }
@@ -205,69 +205,69 @@ function createBlockCSS(blockName) {
 
 async function createBlock() {
   try {
-    console.log('\n🚀 Criador de Blocos Adobe Edge Delivery\n');
+    console.log('\n🚀 Adobe Edge Delivery Block Creator\n');
 
-    // Pergunta o nome do bloco
-    const blockName = await question('📝 Digite o nome do bloco: ');
+    // Ask for block name
+    const blockName = await question('📝 Enter block name: ');
 
     if (!blockName || blockName.trim() === '') {
-      console.error('❌ Nome do bloco não pode ser vazio!');
+      console.error('❌ Block name cannot be empty!');
       rl.close();
       return;
     }
 
-    // Pergunta se tem imagem
+    // Ask if it has image
     const hasImageInput = await question(
-      '🖼️  O bloco tem imagem? (s/n): ',
+      '🖼️  Does the block have an image? (y/n): ',
     );
-    const hasImage = hasImageInput.toLowerCase() === 's';
+    const hasImage = hasImageInput.toLowerCase() === 'y';
 
-    // Pergunta se tem blocos filhos
+    // Ask if it has child blocks
     const hasChildrenInput = await question(
-      '👶 O bloco tem itens filhos? (s/n): ',
+      '👶 Does the block have child items? (y/n): ',
     );
-    const hasChildren = hasChildrenInput.toLowerCase() === 's';
+    const hasChildren = hasChildrenInput.toLowerCase() === 'y';
 
     const blockId = toKebabCase(blockName.trim());
     const blockDir = path.join(__dirname, 'blocks', blockId);
 
-    // Verifica se o bloco já existe
+    // Check if block already exists
     if (fs.existsSync(blockDir)) {
-      console.error(`❌ O bloco "${blockId}" já existe!`);
+      console.error(`❌ Block "${blockId}" already exists!`);
       rl.close();
       return;
     }
 
-    // Cria o diretório do bloco
+    // Create block directory
     fs.mkdirSync(blockDir, { recursive: true });
-    console.log(`✅ Diretório criado: blocks/${blockId}/`);
+    console.log(`✅ Directory created: blocks/${blockId}/`);
 
-    // Cria os arquivos
+    // Create files
     const jsonContent = createBlockJSON(blockName.trim(), hasChildren, hasImage);
     const jsContent = createBlockJS(blockName.trim());
 
     const cssContent = createBlockCSS(blockName.trim());
 
     fs.writeFileSync(path.join(blockDir, `_${blockId}.json`), jsonContent);
-    console.log(`✅ Arquivo criado: _${blockId}.json`);
+    console.log(`✅ File created: _${blockId}.json`);
 
     fs.writeFileSync(path.join(blockDir, `${blockId}.js`), jsContent);
-    console.log(`✅ Arquivo criado: ${blockId}.js`);
+    console.log(`✅ File created: ${blockId}.js`);
 
     fs.writeFileSync(path.join(blockDir, `${blockId}.css`), cssContent);
-    console.log(`✅ Arquivo criado: ${blockId}.css`);
+    console.log(`✅ File created: ${blockId}.css`);
 
-    console.log(`\n🎉 Bloco "${blockId}" criado com sucesso!`);
-    console.log(`\n📁 Localização: blocks/${blockId}/`);
-    console.log(`\n💡 Próximos passos:`);
-    console.log(`   1. Edite o arquivo _${blockId}.json para configurar os campos`);
-    console.log(`   2. Implemente a lógica no arquivo ${blockId}.js`);
-    console.log(`   3. Estilize no arquivo ${blockId}.css`);
-    console.log(`   4. Execute: npm run build:json\n`);
+    console.log(`\n🎉 Block "${blockId}" created successfully!`);
+    console.log(`\n📁 Location: blocks/${blockId}/`);
+    console.log(`\n💡 Next steps:`);
+    console.log(`   1. Edit the _${blockId}.json file to configure fields`);
+    console.log(`   2. Implement the logic in ${blockId}.js file`);
+    console.log(`   3. Style in ${blockId}.css file`);
+    console.log(`   4. Run: npm run build:json\n`);
 
     rl.close();
   } catch (error) {
-    console.error('❌ Erro ao criar bloco:', error.message);
+    console.error('❌ Error creating block:', error.message);
     rl.close();
     process.exit(1);
   }

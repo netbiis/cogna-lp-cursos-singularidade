@@ -46,7 +46,6 @@ export function extractComponentHtmlFrom(element, elementType) {
   return extractComponentHtmlFrom(element.children[0], elementType);
 }
 
-
 /**
  * Splits the direct children of a container by <hr> elements
  * and returns an array of <div class="multifield"> nodes.
