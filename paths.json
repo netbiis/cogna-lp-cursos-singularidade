@@ -1,12 +1,12 @@
 {
   "mappings": [
-    "/content/eds-lp-singularidades-curso/:/",
-    "/content/eds-lp-singularidades-curso/query-index.json:/query-index.json",
-    "/content/eds-lp-singularidades-curso/configuration:/.helix/config.json",
-    "/content/eds-lp-singularidades-curso/metadata:/metadata.json"
+    "/content/eds-lp-singularidades-curso-novo/:/",
+    "/content/eds-lp-singularidades-curso-novo/query-index.json:/query-index.json",
+    "/content/eds-lp-singularidades-curso-novo/configuration:/.helix/config.json",
+    "/content/eds-lp-singularidades-curso-novo/metadata:/metadata.json"
   ],
   "includes": [
-    "/content/eds-lp-singularidades-curso/",
-    "/content/dam/eds-lp-singularidades-curso/"
+    "/content/eds-lp-singularidades-curso-novo/",
+    "/content/dam/eds-lp-singularidades-curso-novoo/"
   ]
 }
